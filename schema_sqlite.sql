@@ -1,5 +1,5 @@
 -- ################## TABLES ################## --
 
-CREATE TABLE `subscriber_emails` (
-  `emails` VARCHAR(200)
+CREATE TABLE `users` (
+  `email` VARCHAR(200)
 );

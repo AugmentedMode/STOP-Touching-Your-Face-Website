@@ -1,5 +1,4 @@
 import os
-import hashlib
 import sqlite3
 
 
@@ -30,17 +29,16 @@ def create_sqlite_tables(conn):
 
 def add_email(email):
     '''
-        Function for storing email
+        Function for storing the details of a user into the database
+        while registering
     '''
     conn = get_database_connection()
     try:
         cursor = conn.cursor()
-        print('hello before insert')
-        print(email)
-        cursor.execute("INSERT INTO subscriber_emails(emails) VALUES (?)", (email))
-        print('hello after insert')
+        cursor.execute("INSERT INTO users(email) VALUES (?)", [email])
         conn.commit()
         cursor.close()
         return
     except:
+        print('in except')
         cursor.close()
